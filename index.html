@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oi&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,body {
+            color: rgb(255, 219, 211);
+            font-family: Oi;
+            overflow-x: hidden;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            overflow-y: auto;
+            background-color: inherit;
+            min-height: 100vh;
+        }
+
+        #page1 {
+            top: 0;
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .page1 {
+            background-color: rgb(214, 79, 67);
+            height: 100vh;
+
+        }
+
+        .page1-1 {
+            padding-top: 10px;
+        }
+
+        .page1-1 p {
+            font-size: 90px;
+            line-height: 120px;
+        }
+
+        .page1-1 p:first-child {
+            margin-top: 130px;
+        }
+
+        .page1-2 p {
+            font-size: 64px;
+            line-height: 90px;
+        }
+
+        .page1-2 p:first-child {
+            margin-top: 170px;
+        }
+
+        .btn {
+            width: 200px;
+            border-radius: 50px;
+            background-color: rgb(255, 219, 211);
+            color: rgb(214, 79, 67);
+            cursor: pointer;
+            line-height: 50px;
+            margin: 0 auto;
+            margin-top: 80px;
+            margin-bottom: 150px;
+            border: 2px solid transparent;
+            padding: 6px 16px;
+            font-size: 18px;
+        }
+
+        .btn1 {
+            position: fixed;
+            top: 2%;
+            left: 2%;
+            margin: 0;
+            width: 100px;
+            transform: rotateY(180deg);
+            cursor: pointer;
+        }
+
+        .btn:hover,
+        .btn1:hover {
+            background-color: transparent;
+            color: #fff;
+            border-color: #fff;
+        }
+
+        .page2 {
+            background-color: rgb(166, 180, 206);
+            height: auto;
+            color: rgb(246, 226, 45);
+            font-size: 55px;
+            display: none;
+            position: relative;
+            overflow-y: auto;
+            min-height: 100vh;
+        }
+
+        .page2-1 {
+            padding-top: 300px;
+        }
+
+        .page2-2 p:first-child {
+            margin-top: 350px;
+        }
+
+        .page2-3 p:first-child {
+            margin-top: 350px;
+        }
+
+        .page2-4 p:first-child {
+            margin-top: 350px;
+        }
+
+        .page2-5 p:first-child {
+            margin-top: 350px;
+        }
+
+        .page2-6 p:first-child {
+            margin-top: 350px;
+        }
+
+        .page2-6 {
+            padding-bottom: 120px;
+            font-size: 75px;
+        }
+
+        .animate__animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 100%, 0);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        .animate__fadeInUp {
+            animation-name: fadeInUp;
+        }
+
+        .animate__animated.animate__delay-1s {
+            animation-delay: 1.5s;
+        }
+
+        .animate__animated.animate__delay-2s {
+            animation-delay: 2.5s;
+        }
+
+        .animate__animated.animate__delay-3s {
+            animation-delay: 3.5s;
+        }
+
+        .animate__animated.animate__delay-4s {
+            animation-delay: 5s;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .visible {
+            display: block;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translate3d(-100%, 0, 0);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        .animate__fadeInLeft {
+            animation-name: fadeInLeft;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translate3d(100%, 0, 0);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        .animate__fadeInRight {
+            animation-name: fadeInRight;
+        }
+
+        @keyframes flipInX {
+            from {
+                transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+                animation-timing-function: ease-in;
+                opacity: 0;
+            }
+
+            40% {
+                transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+                animation-timing-function: ease-in;
+            }
+
+            60% {
+                transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+                opacity: 1;
+            }
+
+            80% {
+                transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+            }
+
+            to {
+                transform: perspective(400px);
+            }
+        }
+
+        .animate__flipInX {
+            backface-visibility: visible !important;
+            animation-name: flipInX;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale3d(0.3, 0.3, 0.3);
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .animate__zoomIn.visible {
+            animation-name: zoomIn;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes swing {
+            20% {
+                transform: rotate3d(0, 0, 1, 15deg);
+            }
+
+            40% {
+                transform: rotate3d(0, 0, 1, -10deg);
+            }
+
+            60% {
+                transform: rotate3d(0, 0, 1, 5deg);
+            }
+
+            80% {
+                transform: rotate3d(0, 0, 1, -5deg);
+            }
+
+            to {
+                transform: rotate3d(0, 0, 1, 0deg);
+            }
+        }
+
+        .animate__swing.visible {
+            transform-origin: top center;
+            animation-name: swing;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes bounce {
+            0%,20%,53%,to {
+                animation-timing-function: cubic-bezier(.215,.61,.355,1);
+                transform: translateZ(0)
+            }
+
+            40%,43% {
+                animation-timing-function: cubic-bezier(.755,.05,.855,.06);
+                transform: translate3d(0,-30px,0) scaleY(1.1)
+            }
+
+            70% {
+                animation-timing-function: cubic-bezier(.755,.05,.855,.06);
+                transform: translate3d(0,-15px,0) scaleY(1.05)
+            }
+
+            80% {
+                transform: translateZ(0) scaleY(.95);
+                transition-timing-function: cubic-bezier(.215,.61,.355,1)
+            }
+
+            90% {
+                transform: translate3d(0,-4px,0) scaleY(1.02)
+            }
+        }
+
+        .animate__bounce.visible {
+            animation-name: bounce;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes wobble {
+            from {
+                transform: translate3d(0, 0, 0);
+            }
+
+            15% {
+                transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
+            }
+
+            30% {
+                transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+            }
+
+            45% {
+                transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
+            }
+
+            60% {
+                transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+            }
+
+            75% {
+                transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+            }
+
+            to {
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        .animate__wobble.visible {
+            animation-name: wobble;
+            animation-delay: 0.5s;
+        }
+        @keyframes flipInY {
+            0% {
+                animation-timing-function: ease-in;
+                opacity: 0;
+                transform: perspective(400px) rotateY(90deg)
+            }
+
+            40% {
+                animation-timing-function: ease-in;
+                transform: perspective(400px) rotateY(-20deg)
+            }
+
+            60% {
+                opacity: 1;
+                transform: perspective(400px) rotateY(10deg)
+            }
+
+            80% {
+                transform: perspective(400px) rotateY(-5deg)
+            }
+
+            to {
+                transform: perspective(400px)
+            }
+        }
+
+        .animate__flipInY.visible {
+            animation-name: flipInY;
+            backface-visibility: visible!important;
+            animation-delay: 2s;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="page1" id="page1">
+            <div class="page1-1">
+                <p class="animate__animated animate__fadeInUp">Don't Let </p>
+                <p class="animate__animated animate__fadeInUp animate__delay-1s">anyone </p>
+                <p class="animate__animated animate__fadeInUp animate__delay-2s">rush You </p>
+                <p class="animate__animated animate__fadeInUp animate__delay-3s">With their </p>
+                <p class="animate__animated animate__fadeInUp animate__delay-4s">timelines </p>
+            </div>
+            <div class="page1-2 hidden">
+                <p class="animate__animated animate__fadeInLeft">Everything in </p>
+                <p class="animate__animated animate__fadeInRight animate__delay-1s">life happens</p>
+                <p class="animate__animated animate__fadeInLeft animate__delay-2s">according to our </p>
+                <p class="animate__animated animate__fadeInRight animate__delay-3s">time, our clock.</p>
+            </div>
+            <div class="btn hidden animate__animated animate__fadeInUp animate__delay-4s" onclick="turnPage()">Turn the
+                Page</div>
+        </div>
+        <div class="page2" id="page2">
+            <div class="page2-1">
+                <img class="btn1" src="ARROW.png" alt="arrow" onclick="returnPage()">
+                <p class="animate__animated animate__flipInX">In two years,</p>
+                <p class="animate__animated animate__flipInX animate__delay-1s">you'll finish your </p>
+                <p class="animate__animated animate__flipInX animate__delay-2s"> A-levels</p>
+            </div>
+            <div class="page2-2">
+                <p class="animate__animated animate__zoomIn">In three,you'll </p>
+                <p class="animate__animated animate__zoomIn">study at your </p>
+                <p class="animate__animated animate__zoomIn">chosen</p>
+                <p class="animate__animated animate__zoomIn"> university.</p>
+            </div>
+            <div class="page2-3">
+                <p class="animate__animated animate__swing">In five,you'll </p>
+                <p class="animate__animated animate__swing">start your </p>
+                <p class="animate__animated animate__swing">carcer,some </p>
+                <p class="animate__animated animate__swing">working at top </p>
+                <p class="animate__animated animate__swing">institutions </p>
+                <p class="animate__animated animate__swing">worldwide</p>
+            </div>
+            <div class="page2-4">
+                <p class="animate__animated animate__bounce">Then comes </p>
+                <p class="animate__animated animate__bounce">marriage,buying </p>
+                <p class="animate__animated animate__bounce"> a house.</p>
+            </div>
+            <div class="page2-5">
+                <p class="animate__animated animate__wobble"> In ten years, </p>
+                <p class="animate__animated animate__wobble">your life will be </p>
+                <p class="animate__animated animate__wobble">set.By thirty, </p>
+                <p class="animate__animated animate__wobble">your path will be </p>
+                <p class="animate__animated animate__wobble">decided.</p>
+            </div>
+            <div class="page2-6">
+                <p class="animate__animated animate__flipInY">But what if</p>
+                <p class="animate__animated animate__flipInY"> that timwline </p>
+                <p class="animate__animated animate__flipInY">doesn't work </p>
+                <p class="animate__animated animate__flipInY">for you?</p>
+            </div>
+        </div>
+
+    </div>
+    <script>
+
+        const page1 = document.querySelector('.page1-1');
+        const page1_2 = document.querySelector('.page1-2');
+        const btn = document.querySelector('.btn');
+        const lastText = document.querySelector('.page1-1 .animate__delay-4s');
+        let timer = null
+        lastText.addEventListener('animationend', () => {
+            timer = null
+            timer = setTimeout(function() {
+                page1.classList.add('hidden');
+                page1_2.classList.remove('hidden');
+                page1_2.classList.add('visible');
+                btn.classList.remove('hidden');
+                btn.classList.add('visible');
+            },3000)
+        });
+
+        const scrollText = document.querySelectorAll('.page2 p');
+        window.addEventListener('scroll', function () {
+            scrollText.forEach(function (text) {
+                const rect = text.getBoundingClientRect();
+                if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                    text.classList.add('visible');
+                } else {
+                    text.classList.remove('visible');
+                }
+            });
+        });
+
+        
+        function turnPage() {
+            document.getElementById("page1").style.display = "none";
+            document.getElementById("page2").style.display = "block";
+        }
+
+        function returnPage() {
+            document.getElementById("page1").style.display = "block";
+            document.getElementById("page2").style.display = "none";
+            page1.classList.remove('hidden');
+            page1.classList.remove('visible');
+            page1_2.classList.remove('visible');
+            page1_2.classList.add('hidden');
+            btn.classList.remove('visible');
+            btn.classList.add('hidden');
+        }
+    </script>
+</body>
+
+</html>
